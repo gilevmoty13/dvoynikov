@@ -118,14 +118,14 @@
 
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
         }
 
         .link-card {
             background: var(--white);
             border-radius: var(--border-radius);
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s, box-shadow 0.3s;
@@ -133,6 +133,11 @@
             text-decoration: none;
             color: inherit;
             backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
         }
 
         .link-card:hover {
@@ -150,13 +155,8 @@
 
         .link-card h3 {
             color: var(--text);
-            margin-bottom: 0.5rem;
             font-size: 1.3rem;
-        }
-
-        .link-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+            margin: 0;
         }
 
         .about {
@@ -229,7 +229,13 @@
             }
             
             .links-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            
+            .link-card {
+                padding: 1.5rem 1rem;
+                min-height: 120px;
             }
             
             .container {
@@ -264,19 +270,16 @@
                 <a href="https://www.tiktok.com/@dvoynikov456?_r=1&_t=ZN-9145LiFZIuc" class="link-card" target="_blank">
                     <div class="link-icon">📱</div>
                     <h3>TikTok</h3>
-                    <p>Обзоры гаджетов и полезные советы в коротком формате</p>
                 </a>
                 
                 <a href="https://www.youtube.com/@dvoynikov456" class="link-card" target="_blank">
                     <div class="link-icon">🎬</div>
                     <h3>YouTube</h3>
-                    <p>Полные обзоры, распаковки и тестирования гаджетов</p>
                 </a>
                 
                 <a href="https://www.instagram.com/dvoynikov456" class="link-card" target="_blank">
                     <div class="link-icon">📸</div>
                     <h3>Instagram</h3>
-                    <p>Фото и сторис из повседневной жизни с гаджетами</p>
                 </a>
             </div>
         </section>

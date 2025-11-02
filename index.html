@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dvoynikov456 - блог о технологиях</title>
+    <style>
+        :root {
+            --primary: #4a86e8;
+            --primary-dark: #2c5aa0;
+            --primary-light: #6fa3ef;
+            --background: linear-gradient(135deg, #4a86e8 0%, #2c5aa0 100%);
+            --background-secondary: linear-gradient(135deg, #6fa3ef 0%, #4a86e8 100%);
+            --text: #fff;
+            --text-light: rgba(255, 255, 255, 0.9);
+            --white: rgba(255, 255, 255, 0.1);
+            --border-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            background-attachment: fixed;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--background-secondary);
+            color: var(--text);
+            text-align: center;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 1.5rem;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+            position: relative;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        h2:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 0.5rem auto 0;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .link-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            color: inherit;
+            backdrop-filter: blur(10px);
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .link-icon {
+            font-size: 2.5rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-card h3 {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .link-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .about {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            line-height: 1.7;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .contact-link {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--background-secondary);
+            color: var(--text);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 100%);
+            pointer-events: none;
+        }
+
+        footer p {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                margin: 2rem auto;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-link {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="ava.png" alt="Аватар dvoynikov456" class="avatar">
+            <h1>dvoynikov456</h1>
+            <p class="subtitle">Блог о технологиях, гаджетах и цифровой жизни</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>Мои каналы</h2>
+            <div class="links-grid">
+                <a href="https://www.tiktok.com/@dvoynikov456?_r=1&_t=ZN-9145LiFZIuc" class="link-card" target="_blank">
+                    <div class="link-icon">📱</div>
+                    <h3>TikTok</h3>
+                    <p>Обзоры гаджетов и полезные советы в коротком формате</p>
+                </a>
+                
+                <a href="https://www.youtube.com/@dvoynikov456" class="link-card" target="_blank">
+                    <div class="link-icon">🎬</div>
+                    <h3>YouTube</h3>
+                    <p>Полные обзоры, распаковки и тестирования гаджетов</p>
+                </a>
+                
+                <a href="https://www.instagram.com/dvoynikov456" class="link-card" target="_blank">
+                    <div class="link-icon">📸</div>
+                    <h3>Instagram</h3>
+                    <p>Фото и сторис из повседневной жизни с гаджетами</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Обо мне</h2>
+            <div class="about">
+                <p>Привет! Я dvoynikov456 - точно не продажный техтокер, всё мнение о гаджете субъективное.</p>
+                <p>Моя цель - рассказать людям нормальным языком о гаджете</p>
+                
+                <div class="contact-links">
+                    <a href="https://t.me/dvoynikov455" class="contact-link" target="_blank">
+                        Подписаться на канал в ТГ
+                    </a>
+                    <a href="https://t.me/dvoynikov456" class="contact-link" target="_blank">
+                        Связаться со мной
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 ГОЙДАА.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Сайт dvoynikov456 загружен');
+        });
+    </script>
+</body>
+</html>
